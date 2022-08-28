@@ -1,0 +1,259 @@
+App {
+  text-align: center;
+}
+
+.spinner {
+  height: 80px;
+  margin: auto;
+}
+
+.App-intro {
+  font-size: xx-large;
+  text-align: center;
+  font-weight: 700;
+}
+
+/* new css for movie component */
+
+* {
+  box-sizing: border-box;
+}
+
+.movies {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  height: 1100px;
+}
+
+/* .add-movies {
+  text-align: center;
+} */
+
+/* .add-movies button {
+  font-size: 16px;
+  padding: 8px;
+  margin: 0 10px 30px 10px;
+} */
+
+.movie {
+  padding-top: 2px;
+  padding-left: 5px;
+  padding-right: 5px;
+  width: 250px;
+}
+
+.movieTitle {
+  height: 3rem;
+  min-height: 0rem;
+  max-width: 200px;
+}
+
+.errorMessage {
+  margin: auto;
+  font-weight: bold;
+  color: rgb(161, 15, 15);
+  text-align: center;
+  font-size: xx-large;
+  margin-top: 5rem;
+}
+
+.search {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 100px;
+}
+.btn {
+  background-color: #5a1a01;
+  border-color: #5a1a01;
+  color: white;
+}
+
+.button {
+  cursor: pointer;
+  font: inherit;
+  border: none;
+  background-color: #4d1601;
+  color: white;
+  padding: 0.75rem 3rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 25px;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+.button:hover,
+.button:active {
+  background-color: #2c0d00;
+}
+
+input[type="submit"] {
+  padding: 5px;
+  background-color: transparent;
+  color: black;
+  border: 1px solid black;
+  width: 80px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #282c34;
+  color: antiquewhite;
+}
+
+.search > input[type="text"] {
+  font-size: x-large;
+  background-color: antiquewhite;
+  border-radius: 50px;
+  width: 30%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+@media screen and (min-width: 694px) and (max-width: 915px) {
+  .movie {
+    max-width: 33%;
+  }
+}
+
+@media screen and (min-width: 652px) and (max-width: 693px) {
+  .movie {
+    max-width: 50%;
+  }
+}
+
+@media screen and (max-width: 651px) {
+  .movie {
+    max-width: 100%;
+    margin: auto;
+  }
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5rem;
+  background-color: #8a2b06;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  z-index: 10;
+}
+
+.main-image {
+  width: 100%;
+  height: 25rem;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.main-image img {
+  width: 110%;
+  height: 150%;
+  object-fit: cover;
+  /* transform: rotateZ(-5deg) translateY(-4rem) translateX(-1rem); */
+}
+
+.links ul {
+  list-style-type: none;
+  font-size: large;
+  font-weight: bold;
+  margin-left: 15rem;
+}
+
+.links li {
+  display: inline;
+  margin-left: 2rem;
+}
+
+.links a {
+  color: white;
+}
+
+.links a:hover {
+  color: rgb(241, 249, 6);
+}
+
+.links a:link {
+  text-decoration: none;
+  font-size: X-large;
+  font-weight: 400;
+}
+.link a {
+  color: white;
+}
+.link a:link {
+  text-decoration: none;
+}
+.favorite {
+  margin-top: 100px;
+}
+
+.button-pages {
+  cursor: pointer;
+  font: inherit;
+  border: none;
+  background-color: #4d1601;
+  color: white;
+  padding: 0.75rem 3rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 25px;
+  font-weight: bold;
+  margin: auto;
+}
+
+ul.pagination {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+ul.pagination li {
+  display: inline;
+}
+
+ul.pagination li a {
+  color: black;
+  background-color: #f5f3f3;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  border: 1px solid #ddd; /* Gray */
+  margin: 1px 10px; /* 0 is for top and bottom. */
+  font-size: 22px;
+}
+
+ul.pagination li a.active {
+  background-color: #f89191;
+  color: white;
+}
+
+ul.pagination li a:hover:not(.active) {
+  background-color: rgb(136, 135, 135);
+}
+div.pagination {
+  text-align: center;
+}
+
+.popup-movie {
+  display: flex;
+  justify-content: left;
+}
+
+.popup-movie-data {
+  display: block;
+}
