@@ -30,6 +30,13 @@ const Movie = (props) => {
       ? props.movie.Title.slice(0, 20) + "..."
       : props.movie.Title;
 
+  const movieYear =
+    props.movie.Year.length !== 4
+      ? props.movie.Year.slice(0, -1)
+      : props.movie.Year;
+
+  console.log(movieYear);
+
   return (
     <div className="movie" title={props.movie.Title} id={props.movie.imdbID}>
       <h2 className="movieTitle">{movieTitle}</h2>
@@ -44,7 +51,7 @@ const Movie = (props) => {
           src={poster}
         />
       </div>
-      <p>{props.movie.Year}</p>
+      <p>{movieYear}</p>
     </div>
   );
 };

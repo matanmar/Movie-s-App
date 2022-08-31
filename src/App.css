@@ -11,6 +11,7 @@ App {
   font-size: xx-large;
   text-align: center;
   font-weight: 700;
+  color: rgb(255, 255, 255);
 }
 
 /* new css for movie component */
@@ -44,9 +45,11 @@ App {
   padding-left: 5px;
   padding-right: 5px;
   width: 250px;
+  color: rgb(255, 255, 255);
 }
 
 .movieTitle {
+  /* color: rgb(255, 255, 255); */
   height: 3rem;
   min-height: 0rem;
   max-width: 200px;
@@ -79,7 +82,7 @@ App {
 
 .search > input[type="text"] {
   font-size: x-large;
-  background-color: antiquewhite;
+  background-color: rgb(255, 233, 233);
   width: 500px;
   padding: 12px 20px;
   box-sizing: border-box;
@@ -95,7 +98,7 @@ App {
   cursor: pointer;
   font: inherit;
   border: none;
-  background-color: #4d1601;
+  background-color: #992b00;
   color: white;
   padding: 1.2rem 3rem;
   align-items: center;
