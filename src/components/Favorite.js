@@ -13,10 +13,10 @@ const Favorite = (props) => {
     if (e.target.id === "button") return;
 
     //getting the movie name from the clicked movie
-    const clickedMovieName = e.target.closest(".movie").title;
+    const clickedMovieID = e.target.closest(".movie").id;
 
     // calling functioon that will show the popup
-    props.onShowMovieData(clickedMovieName);
+    props.onShowMovieData(clickedMovieID);
   };
 
   return (

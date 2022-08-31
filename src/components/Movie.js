@@ -31,7 +31,7 @@ const Movie = (props) => {
       : props.movie.Title;
 
   return (
-    <div className="movie" title={props.movie.Title}>
+    <div className="movie" title={props.movie.Title} id={props.movie.imdbID}>
       <h2 className="movieTitle">{movieTitle}</h2>
       <button id="button" onClick={updateFavoriteMovie.bind(null, props.movie)}>
         {isItFav === -1 ? "🖤" : "💗"}

@@ -24,6 +24,13 @@ const QueryMovies = (props) => {
 
         const data = await response.json();
 
+        if (data.Error === "Too many results.")
+          throw new Error(
+            `Couldn't find the movie. please check spelling or try search different movie.`
+          );
+        else if (data.Error)
+          throw new Error(`Something went wrong, try to reload.`);
+
         const withFav = data.Search.map((mov) => ({ ...mov, isFav: false }));
         setIsLoading(false);
 
@@ -35,7 +42,7 @@ const QueryMovies = (props) => {
         }
       } catch (error) {
         setErrorMessage(error.message);
-        console.error(`${error.message}💥💥`);
+        console.error(`${error}💥💥`);
       }
     },
     [props.movieName]
@@ -59,13 +66,15 @@ const QueryMovies = (props) => {
         onShowMovieData={props.onShowMovieData}
       />
 
-      <Paginate
-        pageNumber={currentPage}
-        postsPerPage={10}
-        totalPosts={totalResults || 1}
-        onChangepage={changePage}
-        movieName={props.movieName}
-      />
+      {!errorMessage && (
+        <Paginate
+          pageNumber={currentPage}
+          postsPerPage={10}
+          totalPosts={totalResults || 1}
+          onChangepage={changePage}
+          movieName={props.movieName}
+        />
+      )}
     </Fragment>
   );
 };

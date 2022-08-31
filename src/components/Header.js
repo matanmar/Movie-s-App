@@ -10,7 +10,7 @@ const Header = (props) => {
           <Link to="/">Matan's Movies</Link>
         </h1>
         <nav className="links">
-          <Link to="/favoriet">⭐Favorite⭐</Link>
+          <Link to="/favoriet">💗Favorite💗</Link>
         </nav>
       </header>
     </div>

@@ -24,6 +24,9 @@ App {
   flex-wrap: wrap;
   flex-direction: row;
   height: 1100px;
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 /* .add-movies {
@@ -57,6 +60,14 @@ App {
   font-size: xx-large;
   margin-top: 5rem;
 }
+.popup-error {
+  margin: auto;
+  font-weight: bold;
+  color: rgb(161, 15, 15);
+  text-align: center;
+  font-size: xx-large;
+  /* margin-top: 5rem; */
+}
 
 .search {
   display: flex;
@@ -65,6 +76,15 @@ App {
   justify-content: center;
   margin-top: 100px;
 }
+
+.search > input[type="text"] {
+  font-size: x-large;
+  background-color: antiquewhite;
+  width: 500px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+}
+
 .btn {
   background-color: #5a1a01;
   border-color: #5a1a01;
@@ -77,13 +97,18 @@ App {
   border: none;
   background-color: #4d1601;
   color: white;
-  padding: 0.75rem 3rem;
-  display: flex;
-  justify-content: space-around;
+  padding: 1.2rem 3rem;
   align-items: center;
-  border-radius: 25px;
   font-weight: bold;
-  margin-top: 1rem;
+}
+.button-popup {
+  cursor: pointer;
+  font: inherit;
+  border: none;
+  background-color: #4d1601;
+  color: white;
+  padding: 1rem 1rem;
+  margin-left: 95%;
 }
 
 .button:hover,
@@ -104,16 +129,6 @@ input[type="submit"] {
 input[type="submit"]:hover {
   background-color: #282c34;
   color: antiquewhite;
-}
-
-.search > input[type="text"] {
-  font-size: x-large;
-  background-color: antiquewhite;
-  border-radius: 50px;
-  width: 30%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  box-sizing: border-box;
 }
 
 @media screen and (min-width: 694px) and (max-width: 915px) {
@@ -250,10 +265,23 @@ div.pagination {
 }
 
 .popup-movie {
-  display: flex;
-  justify-content: left;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .popup-movie-data {
   display: block;
+  font-size: xx-large;
+  margin-top: 0;
+  /* margin-top: -2rem; */
+  margin-left: 2rem;
 }
+
+.popup-contanier {
+  display: flex;
+  justify-content: left;
+}
+/* .popup-error-contanier {
+  display: flex;
+  justify-content: center;
+} */

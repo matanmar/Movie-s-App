@@ -10,17 +10,17 @@ function App(props) {
     if (e.target.id === "button") return;
 
     //getting the movie name from the clicked movie
-    const clickedMovieName = e.target.closest(".movie").title;
+    const clickedMovieID = e.target.closest(".movie").id;
 
     // calling functioon that will show the popup
-    props.onShowMovieData(clickedMovieName);
+    props.onShowMovieData(clickedMovieID);
   };
 
   return (
     <Fragment>
       {props.isLoading && !props.errorMessage && <LoadingSpinner />}
       {props.isLoading && props.errorMessage && (
-        <p className="errorMessage">{`Something went wrong: ${props.errorMessage}`}</p>
+        <p className="errorMessage">{`${props.errorMessage}`}</p>
       )}
       {!props.isLoading && !props.errorMessage && (
         <div className="movies" onClick={dataOnClickedMovie}>
