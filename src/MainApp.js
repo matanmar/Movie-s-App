@@ -6,6 +6,7 @@ import Header from "./components/Header";
 import Search from "./components/Search";
 import Modal from "./UI/Modal";
 import QueryMovies from "./components/queryMovies";
+import { BiExit } from "react-icons/bi";
 // import LoadingSpinner from "./UI/LoadingSpinner";
 
 let content;
@@ -19,19 +20,20 @@ const MainApp = () => {
   const [showOverlay, setShowOverlay] = useState(false); // relevant to the overlay
   const [searchedMovieName, setSearchedMovieName] = useState(null);
 
-  // URL to render the top 10 of the first loading page
-  const MOVIE_API_URL = "https://www.omdbapi.com/?s=man&y=2022&apikey=4a3b711b";
-
   // function that fetch opening page movies
-  const fetchMovieHandler = async () => {
+  const fetchMovieHandler = async (page1 = 1, page2 = 2) => {
     try {
       setIsLoading(true); // for loading spinner
-      const response = await fetch(MOVIE_API_URL);
+
+      // fetching 2 times because API haslimit of 10 movies per fetch
+      const response = await fetch(
+        `https://www.omdbapi.com/?s=man&y=2022&page=${page1}&apikey=4a3b711b`
+      );
       const data1 = await response.json();
       if (data1.Error) throw new Error(data1.Error);
 
       const response2 = await fetch(
-        `https://www.omdbapi.com/?s=man&y=2022&page=2&apikey=4a3b711b`
+        `https://www.omdbapi.com/?s=man&y=2022&page=${page2}&apikey=4a3b711b`
       );
       const data2 = await response2.json();
       if (data2.Error) throw new Error(data2.Error);
@@ -43,7 +45,7 @@ const MainApp = () => {
       // adding all movies paramter for "is favoriet"- all sets to false at the begining
       const withFav = data.map((mov) => ({ ...mov, isFav: false }));
 
-      setOpenPageMovies(withFav);
+      setOpenPageMovies((pre) => [...pre, ...withFav]);
     } catch (error) {
       setErrorMessage(error.message);
       console.error(`${error.message}💥💥`);
@@ -74,9 +76,6 @@ const MainApp = () => {
 
       content = (
         <Modal onClose={closeModal}>
-          <button className="button-popup button" onClick={closeModal}>
-            X
-          </button>
           <div className="popup-contanier">
             <div className="popup-movie">
               <img
@@ -129,6 +128,9 @@ const MainApp = () => {
                 </div>
               )}
             </div>
+            <span className="exit-icon" onClick={closeModal}>
+              <BiExit />
+            </span>
           </div>
         </Modal>
       );
@@ -153,6 +155,15 @@ const MainApp = () => {
     setSearchedMovieName(movieName);
   };
 
+  const moreMoiesHandler = (e) => {
+    // checks how many results there is to find which pages need to fetch
+    const page = openPageMovies.length / 10 + 1;
+
+    fetchMovieHandler(page, page + 1);
+
+    // document.documentElement.scrollTop = e.pageY ;
+  };
+
   return (
     <Fragment>
       {showOverlay && !errorMessage && content}
@@ -175,6 +186,11 @@ const MainApp = () => {
                 errorMessage={errorMessage}
                 onShowMovieData={showMovieData}
               />
+              <div style={{ textAlign: "center" }}>
+                <button className="button more" onClick={moreMoiesHandler}>
+                  More movies
+                </button>
+              </div>
             </Fragment>
           }
         />

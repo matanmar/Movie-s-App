@@ -9,8 +9,8 @@ const Favorite = (props) => {
 
   // event delegation- adding parent movies the event click to show popup
   const dataOnClickedMovie = (e) => {
-    //if favorite button clicked, return and dont show popup
-    if (e.target.id === "button") return;
+    //if favorite icon clicked, return and dont show popup
+    if (e.target.localName === "path") return;
 
     //getting the movie name from the clicked movie
     const clickedMovieID = e.target.closest(".movie").id;

@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { FavMovieContext } from "../context/movie-context";
+import { AiFillHeart } from "react-icons/ai";
 
 const DEFAULT_PLACEHOLDER_IMAGE =
   "https://m.media-amazon.com/images/M/MV5BMTczNTI2ODUwOF5BMl5BanBnXkFtZTcwMTU0NTIzMw@@._V1_SX300.jpg";
@@ -31,19 +32,23 @@ const Movie = (props) => {
       : props.movie.Title;
 
   const movieYear =
-    props.movie.Year.length !== 4
+    props.movie.Type === "series"
+      ? props.movie.Year
+      : props.movie.Year.length !== 4
       ? props.movie.Year.slice(0, -1)
       : props.movie.Year;
 
-  console.log(movieYear);
-
   return (
     <div className="movie" title={props.movie.Title} id={props.movie.imdbID}>
-      <h2 className="movieTitle">{movieTitle}</h2>
-      <button id="button" onClick={updateFavoriteMovie.bind(null, props.movie)}>
-        {isItFav === -1 ? "🖤" : "💗"}
-      </button>
-      <div>
+      <h3 className="movieTitle">{movieTitle}</h3>
+      <div className="img-container">
+        <span onClick={updateFavoriteMovie.bind(null, props.movie)}>
+          {isItFav === -1 ? (
+            <AiFillHeart className="fav-icon" style={{ color: "white" }} />
+          ) : (
+            <AiFillHeart className="fav-icon" />
+          )}
+        </span>
         <img
           alt={`The movie titled: ${props.movie.Title}`}
           width="200"

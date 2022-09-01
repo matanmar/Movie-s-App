@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import { Link } from "react-router-dom";
+import { BsSearch } from "react-icons/bs";
 
 const Search = (props) => {
   const inputRef = useRef();
@@ -12,7 +13,7 @@ const Search = (props) => {
       <input type="text" placeholder="Look for a movie..." ref={inputRef} />
       <Link to="/searcedhMovies">
         <button className="button" type="submit" onClick={sendName}>
-          SEARCH
+          <BsSearch style={{ fontSize: "x-large" }} />
         </button>
       </Link>
     </form>
