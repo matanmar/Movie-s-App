@@ -32,7 +32,7 @@ const Movie = (props) => {
       : props.movie.Title;
 
   const movieYear =
-    props.movie.Type === "series"
+    props.movie.Type === "series" && props.movie.Year.length > 6
       ? props.movie.Year
       : props.movie.Year.length !== 4
       ? props.movie.Year.slice(0, -1)
