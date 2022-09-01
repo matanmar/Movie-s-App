@@ -177,7 +177,7 @@ const MainApp = () => {
             <Fragment>
               <div>
                 {!errorMessage && (
-                  <p className="App-intro">Sharing a few of the new movies</p>
+                  <p className="App-intro">Sharing a few of our new content</p>
                 )}
               </div>
               <App
@@ -188,7 +188,7 @@ const MainApp = () => {
               />
               <div style={{ textAlign: "center" }}>
                 <button className="button more" onClick={moreMoiesHandler}>
-                  More movies
+                  See more
                 </button>
               </div>
             </Fragment>
