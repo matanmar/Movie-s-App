@@ -37,6 +37,9 @@ App {
   width: 250px;
   color: rgb(255, 255, 255);
 }
+.movie_box {
+  border-radius: 15px;
+}
 
 .movieTitle {
   /* color: rgb(255, 255, 255); */
