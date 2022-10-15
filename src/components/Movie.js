@@ -50,7 +50,7 @@ const Movie = (props) => {
           )}
         </span>
         <img
-className="movie_box"
+          className="movie_box"
           alt={`The movie titled: ${props.movie.Title}`}
           width="200"
           height="300"
