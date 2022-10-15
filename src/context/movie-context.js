@@ -4,7 +4,7 @@ export const FavMovieContext = React.createContext();
 
 // function to fetch movie to API with 'PUT' method
 const fetchMovie = (data) => {
-  fetch("https://movies--updated-default-rtdb.firebaseio.com/favoriets.json", {
+  fetch("https://movies-oct-default-rtdb.firebaseio.com/favoriets.json", {
     method: "PUT",
     body: JSON.stringify(data),
     headers: { "Content-Type": "application/json" },
@@ -19,7 +19,7 @@ const FavMovieContextProvider = (props) => {
     const fetchFav = async () => {
       // fetching the favorite movies from database(firebase)
       const response = await fetch(
-        "https://movies-app-79105-default-rtdb.firebaseio.com/favoriets.json"
+        "https://movies-oct-default-rtdb.firebaseio.com/favoriets.json"
       );
 
       const data = await response.json();
